@@ -1,0 +1,41 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - configmap.yaml
+  - secret.yaml
+  - hpa.yaml
+  - persistentvolumeclaim.yaml
+  - networkpolicy.yaml
+  - poddisruptionbudget.yaml
+  - serviceaccount.yaml
+  - rolebinding.yaml
+  - clusterrolebinding.yaml
+  - podsecuritypolicy.yaml
+  - priorityclass.yaml
+  - resourcequota.yaml
+  - limitrange.yaml
+  - storageclass.yaml
+  - customresourcedefinition.yaml
+  - webhookconfiguration.yaml
+  - crontab.yaml
+  - job.yaml
+  - cronjob.yaml
+  - statefulset.yaml
+  - daemonset.yaml
+  - replicationcontroller.yaml
+  - replicaset.yaml
+  - horizontalpodautoscaler.yaml
+  - verticalpodautoscaler.yaml
+  - podtemplate.yaml
+  - podpreset.yaml
+  - poddisruptionbudget.yaml
+  - podsecuritypolicy.yaml
+  - podsecurityadmission.yaml
+
+images:
+  - name: myapp
+    newName: luizalvesr/gitopslarv2
+    newTag: hdfdfsladfjdk
