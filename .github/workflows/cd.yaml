@@ -1,5 +1,6 @@
 name: CDGitops
-on:
+
+on: 
   push:
     branches: [main]
 
@@ -8,11 +9,11 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
 
-    steps: 
+    steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Build and push image to Docker Hub
+    - name: Build and push image to Dockerhub
       uses: docker/build-push-action@v1.1.0
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
@@ -21,49 +22,25 @@ jobs:
         tags: ${{ github.sha }}, latest
 
     - name: Setup Kustomize
-      uses: imranismail/setup-kustomize@v1.0.0
-      with:
-        version: v4.5.7
-        install_dir: ${{ github.workspace }}/kustomize
-        install_dir_path: ${{ github.workspace }}/kustomize/bin
-        kustomize_version: v4.5.7
+      uses: imranismail/setup-kustomize@v1
+      with: 
+        kustomize-version: "3.6.1"
 
     - name: Update Kubernetes resources
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
-        
       run: |
         cd k8s
-        kustomize edit set image ${{ secrets.DOCKER_USERNAME }}/gitopeslarv2:${{ github.sha }}
-        kustomize edit set image ${{ secrets.DOCKER_USERNAME }}/gitopeslarv2:latest
-        kustomize build . > k8s-manifest.yaml
-  
-    - name: Commit and push changes
+        kustomize edit set image goserver=$DOCKER_USERNAME/gitopsfc:$GITHUB_SHA
+
+    - name: Commit
       run: |
-        git config --local user.name "GitHub Actions"
-        git config --local user.email "
-        git add k8s-manifest.yaml
-        git commit -m "Bump image version to ${{ github.sha }}"
-        
-    - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -am "Bump docker version"
+
+    - name: Push
+      uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-        directory: k8s
-        commit_message: "Update image version to ${{ github.sha }}"
-        force: true
-        commit_message: "Update image version to ${{ github.sha }}"
-        commit_author: "GitHub Actions <  
-        repository: ${{ github.repository }}
-        commit_email: " GitHub Actions <${{ github.actor }}@users.noreply.github.com>"
-        commit_author: "GitHub Actions <${{ github.actor }}@users.noreply.github.com>"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_REPOSITORY: ${{ github.repository }}
-        GITHUB_REF: ${{ github.ref }}
-        GITHUB_SHA: ${{ github.sha }}
-        GITHUB_WORKSPACE: ${{ github.workspace }}
-        GITHUB_ACTOR: ${{ github.actor }}
+        repository: devfullcycle/gitopsfc
