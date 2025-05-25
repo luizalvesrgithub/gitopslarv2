@@ -1,0 +1,183 @@
+    1  sudo apt install terminator
+    2  sudo apt install gp-saml-gui 
+    3  gp-saml-gui --gateway --clientos=Linux rpv-dev.tjdft.jus.br -S 
+    4  Instalação do Linux 
+    5  Entre na Bios digitando várias vezes o“Esc” 
+    6  Entre em Bios Setup (F10)
+    7  Na aba Security  clique em "Secure Boot Configuration"
+    8  Clique em "Enable MS UEFI CA key" 
+    9  Volte para a aba Main e clique em "Save Changes and Exit". 
+   10  Entre na Bios novamente digitando várias vezes o“Esc” 
+   11  clique em Boot Menu (F9) e escolha a sua opção de USB com o linux de instalação
+   12  Instalação da VPN 
+   13  Acesse o portal Azure / Grupos e ative a conexão microsft 
+   14  https://portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_PIMCommon/ActivationMenuBlade/~/aadgroup/provider/aadgroup
+   15  Instale a vpn 
+   16  sudo apt install gp-saml-gui 
+   17  Inicie a vpn 
+   18  gp-saml-gui --gateway --clientos=Linux rpv-dev.tjdft.jus.br -S 
+   19  (OPCIONAL) criar link simbólico via terminal
+   20  digite: na
+   21  nano gp-saml-gui.sh
+   22  chmod +x gp-saml-gui.sh
+   23  sudo mv gp-saml-gui.sh /usr/local/bin/
+   24  sudo ln -s /usr/local/bin/gp-saml-gui.sh /usr/local/bin/vpn
+   25  git clone https://gitlab.tjdft.jus.br/configuracao/ansible/playbooks/mint-desenv.git
+   26  cd mint-desenv
+   27  ./instalar.sh
+   28  sudo apt install git
+   29  git clone https://gitlab.tjdft.jus.br/configuracao/ansible/playbooks/mint-desenv.git
+   30  cd mint-desenv
+   31  ./instalar.sh
+   32  vpn
+   33  # Add Docker's official GPG key:
+   34  sudo apt-get update
+   35  sudo apt-get install ca-certificates curl
+   36  sudo install -m 0755 -d /etc/apt/keyrings
+   37  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+   38  sudo chmod a+r /etc/apt/keyrings/docker.asc
+   39  # Add the repository to Apt sources:
+   40  echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+   41    $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   42  sudo apt-get update
+   43  vpn
+   44  sudo docker run hello-world
+   45  docker ps
+   46  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   47  ls 
+   48  rm -rf mint-desenv/
+   49  git clone https://gitlab.tjdft.jus.br/configuracao/ansible/playbooks/mint-desenv.git
+   50  cd mint-desenv
+   51  ./instalar.sh
+   52  vpn
+   53  cd ..
+   54  cd..
+   55  cd ..
+   56  git clone https://gitlab.tjdft.jus.br/configuracao/ansible/playbooks/sipad.git
+   57  cd sipad
+   58  ./instalar.sh
+   59  cd ..
+   60  git clone https://gitlab.tjdft.jus.br/configuracao/ansible/playbooks/siex.git
+   61  cd siex
+   62  ./instalar.sh
+   63  vpn
+   64  go version
+   65  sudo apt  install golang-go  # version 2:1.21~2
+   66  go version
+   67  go mod init webserverlar
+   68  go run main.,go
+   69  go run main.go
+   70  clean
+   71  clear
+   72  go run main.go
+   73  go version[
+   74  go version
+   75  mkdir gitops
+   76  cd egitops
+   77  cd gitops/
+   78  code .
+   79  go run main.go
+   80  clear
+   81  docker build -t luizalvesr/gitopslar:latest .
+   82  cd gitops/
+   83  code .
+   84  docker build -t luizalvesr/gitopslar:latest .
+   85  sodo docker build -t luizalvesr/gitopslar:latest .
+   86  sudo  docker build -t luizalvesr/gitopslar:latest .
+   87  docker run -rm -p 8080:8080 luizalvesr/gitopslar:latest
+   88  docker run --rm -p 8080:8080 luizalvesr/gitopslar:latest
+   89  sudo docker run --rm -p 8080:8080 luizalvesr/gitopslar:latest
+   90  docker rupush luizalvesr/gitopslar:latest
+   91  docker push luizalvesr/gitopslar:latest
+   92  sudo docker push luizalvesr/gitopslar:latest
+   93  docker run hello-world
+   94  sudo  docker build -t luizalvesr/gitopslar:latest .
+   95  docker run -rm -p 8080:8080 luizalvesr/gitopslar:latest
+   96  docker run --rm -p 8080:8080 luizalvesr/gitopslar:latest
+   97  sudo docker push luizalvesr/gitopslar:latest
+   98  docker run --rm -p 8080:8080 luizalvesr/gitopslarv2:latest
+   99  docker run --rm -p 8080:8080 luizalvesr/gitopslar:latest
+  100  sudo  docker build -t luizalvesr/gitopslarv2:latest .
+  101  docker run --rm -p 8080:8080 luizalvesr/gitopslarv2:latest 
+  102  sudo docker push luizalvesr/gitopslarv2:latest
+  103  docker login -u luizalvesr
+  104  sudo docker push luizalvesr/gitopslarv2:latest
+  105  vpn
+  106  sudo systemctl enable docker.service
+  107  sudo systemctl enable containerd.service
+  108  docker push luizalvesr/gitopslar:latest
+  109  cd gitops/
+  110  code .
+  111  docker login -u luizalvesrdockerhub
+  112  docker login -u luizalvesr
+  113  git init 
+  114  git add .
+  115  git commit -m "first commit"
+  116  git init 
+  117  git add .
+  118  git commit -m 'first commit'
+  119  git remote add origin https://github.com/luizalvesrgithub/gitopslarv2.git
+  120  git branch -M main
+  121  git push -u origin main
+  122  git init
+  123  git add .
+  124  git config --global init.defaultBranch master
+  125  git init
+  126  git add .
+  127  git commit -m 'first commit'
+  128  git config --global user.email "luizalvesr@gmail.com"
+  129  git config --global user.name "luizalvesrgithub"
+  130  git init
+  131  git add .
+  132  git commit -m 'first commit'
+  133  git branch -M main
+  134  git remote add origin https://github.com/luizalvesrgithub/gitopslarv2.git
+  135  git push -u origin main
+  136  git push origin main
+  137  cd gitops/
+  138  code .
+  139  git push origin main
+  140  git branch -M main
+  141  git init
+  142  git add .
+  143  git commit -m 'segundo commit'
+  144  git branch -M main
+  145  git push origin main
+  146  kind create cluster --name=gitopslarv2
+  147  kustomize
+  148  git add .
+  149  git commit -m 'cd'
+  150  git push origin main
+  151  cd gitops/
+  152  code .
+  153  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+  154  	
+  155  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+  156  echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+  157  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+  158  kubectl version --client --output=yaml  
+  159  # For AMD64 / x86_64
+  160  [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.28.0/kind-linux-amd64
+  161  # For ARM64
+  162  [ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.28.0/kind-linux-arm64
+  163  chmod +x ./kind
+  164  sudo mv ./kind /usr/local/bin/kind
+  165  curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+  166  kubectl create namespace argocd
+  167  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  168  cd gitops/
+  169  code .
+  170  kubectl get all
+  171  kubectl get all -n argo
+  172  kubectl get all -n argocd
+  173  argocd admin initial-password -n argocd
+  174  kubectl -n argocd get secret aroocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+  175  kubectl -n argocd get secret argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+  176  kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
+  177  kubectl port-forward svc/argocd-server -n argocd 8080:443
+  178  cd gitops/
+  179  code .
+  180  golang --version
+  181  historey
+  182  history
+  183  history > comandarios.txt
